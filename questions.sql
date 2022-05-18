@@ -665,6 +665,10 @@
 			select max(m1.price)
 			from menu m1
 			where m1.country = 'italy')
+		-- Alt:
+			SELECT pizza, price FROM Menu
+			WHERE price > all (SELECT price FROM Menu 
+			   		   WHERE country = 'italy')
 
 	-- L6-18 Give all pizzas that originate from the same country as the 'siciliano' pizza.  Do not include 'siciliano' pizza in your result table. Sort your results based on pizza.
 		Select pizza
